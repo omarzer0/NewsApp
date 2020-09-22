@@ -15,14 +15,6 @@ public class Article {
         this.articleUrl = articleUrl;
     }
 
-    public Article(String articleTitle, String sectionName,String publishDate, String articleUrl) {
-        this.articleTitle = articleTitle;
-        this.sectionName = sectionName;
-        this.authorName = "";
-        this.publishDate = publishDate;
-        this.articleUrl = articleUrl;
-    }
-
     public String getArticleTitle() {
         return articleTitle;
     }
