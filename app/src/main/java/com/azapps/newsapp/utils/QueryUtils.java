@@ -120,12 +120,10 @@ public class QueryUtils {
                 JSONObject currentJsonObject = results.getJSONObject(i);
                 String webTitle = currentJsonObject.getString("webTitle");
                 String sectionName = currentJsonObject.getString("sectionName");
-                String author;
-                try {
-                    author = currentJsonObject.getString("author");
-                } catch (JSONException e) {
-                    author = null;
-                }
+                JSONArray tags = currentJsonObject.getJSONArray("tags");
+                JSONObject tagItem = tags.getJSONObject(0);
+                String author = tagItem.getString("webTitle");
+
                 String webPublicationDate = currentJsonObject.getString("webPublicationDate");
                 try {
                     webPublicationDate = webPublicationDate.substring(0, 10);

@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -54,13 +55,15 @@ public class MainActivity extends AppCompatActivity
     private void initURI() {
         Uri.Builder builder = new Uri.Builder();
         // this is the api I used
-        // "https://content.guardianapis.com/search?api-key=test&section=football"
+        // "https://content.guardianapis.com/search?show-tags=contributor&api-key=test&section=football"
         builder.scheme("https")
                 .authority("content.guardianapis.com")
                 .appendPath("search")
+                .appendQueryParameter("show-tags","contributor")
                 .appendQueryParameter("api-key", "test")
                 .appendQueryParameter("section", "football");
         ARTICLE_API = builder.build().toString();
+        Log.e("TAG", "initURI: \n\n\n" +ARTICLE_API );
     }
 
     private void checkForConnection() {
